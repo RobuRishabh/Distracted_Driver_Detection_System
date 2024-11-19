@@ -7,11 +7,12 @@ This project aims to build a machine learning model to detect distracted drivers
 
 1. [Overview](#overview)
 2. [Dataset](#dataset)
-3. [Requirements](#requirements)
-4. [Usage](#usage)
-5. [Model Training](#model-training)
-6. [Evaluation](#evaluation)
-7. [Results](#results)
+3. [Classes](#classes)
+4. [Requirements](#requirements)
+5. [Usage](#usage)
+6. [Model Training](#model-training)
+7. [Evaluation](#evaluation)
+8. [Results](#results)
 
 ---
 
@@ -28,9 +29,8 @@ The notebook contains:
 
 ## Dataset
 
-The dataset includes labeled images of drivers performing various activities. The images are divided into categories representing different types of distractions. Paths and class names are specified in the notebook.
+The dataset for this project is sourced from the [State Farm Distracted Driver Detection Challenge on Kaggle](https://www.kaggle.com/c/state-farm-distracted-driver-detection/data).
 
-### Data Directory
 Ensure the dataset is structured as follows:
 ```
 /data/
@@ -43,14 +43,32 @@ Ensure the dataset is structured as follows:
 
 ---
 
+## Classes
+
+The model is trained to predict the following 10 classes:
+- **c0**: Safe driving
+- **c1**: Texting - right
+- **c2**: Talking on the phone - right
+- **c3**: Texting - left
+- **c4**: Talking on the phone - left
+- **c5**: Operating the radio
+- **c6**: Drinking
+- **c7**: Reaching behind
+- **c8**: Hair and makeup
+- **c9**: Talking to passenger
+
+---
+
 ## Requirements
 
 The notebook is implemented in Python and requires the following libraries:
-- Pytorch
+- PyTorch
+- Torchvision
 - OpenCV
-- NumPy
-- Pandas
+- Scikit-learn
 - Matplotlib
+- Seaborn
+- NumPy
 
 Install dependencies using:
 ```bash
@@ -63,7 +81,7 @@ pip install -r requirements.txt
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/RobuRishabh/Distracted_Driver_Detection_System.git
    ```
 2. Place the dataset in the `/data` folder.
 3. Open the notebook `distracted-driver-detection.ipynb` and run all cells sequentially.
@@ -74,7 +92,7 @@ pip install -r requirements.txt
 
 The model is based on a Convolutional Neural Network (CNN) architecture. It is trained using:
 - Data augmentation to improve generalization
-- Categorical cross-entropy loss
+- Cross-entropy loss
 - Adam optimizer
 
 Adjust hyperparameters in the notebook for experimentation.
